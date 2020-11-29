@@ -1,13 +1,33 @@
 <?php
+	/*
+	// recebe os valores por get (quando action do form estiver apontando para salarioliquido.php)
 	$vh = 0;
 	$qh = 0;
 	$pd = 0;
+		
+	if (isset($_GET["vh"]))	{
+		$vh = $_GET["vh"];
+		$qh = $_GET["qh"];
+		$pd = $_GET["pd"];
+	}
+	*/
 	
-	if (isset($_GET["vh"]))
-	{
-	$vh = $_GET["vh"];
-	$qh = $_GET["qh"];
-	$pd = $_GET["pd"];
+	// conteúdo de salarioliquido.php
+	$qh = 0;
+	$vh = 0;
+	$desconto = 0;
+	$pd = 0;
+	$sbruto = 0;
+	$sliquido = 0;
+	
+	if (isset($_POST["Enviar"])) {
+		$qh = $_POST["qtdhora"];
+		$vh = $_POST["vhoras"];
+		$pd = $_POST["desconto"];
+		
+		$sbruto = $qh * $vh;
+		$desconto = ($sbruto * $pd) / 100;
+		$sliquido = $sbruto - $desconto;
 	}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitionl//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -17,7 +37,8 @@
         <title>Salário Líquido</title>
     </head>
     <body>
-		<form id="form1" name="form1" method="post" action="salarioliquido.php">
+		<!-- <form id="form1" name="form1" method="post" action="salarioliquido.php"> //-->
+		<form id="form1" name="form1" method="post" action="">
 			<p>
 				<label for="qtdhora">Quantidade de horas trabalhadas</label>
 				<input type="text" name="qtdhora" id="qtdhora" value="<?php echo $qh; ?>" />
@@ -38,5 +59,8 @@
 				<input type="submit" name="Enviar" id="Enviar" value="Enviar" />
 			</p>
 		</form>
+		<h2>Salário Bruto: <?php echo $sbruto ?></h2>
+		<h2>Desconto: <?php echo $desconto ?></h2>
+		<h2>Salário Líquido: <?php echo $sliquido ?></h2>
     </body>
 </html>
