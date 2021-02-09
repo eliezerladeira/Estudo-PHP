@@ -2,7 +2,7 @@
 
 class Pessoa
 {
-	public $nome;
+/*	public $nome;
 	public $site;
 	
 	public function falarNome()	{
@@ -12,5 +12,15 @@ class Pessoa
 	public function falarSite()	{
 		echo $this->site;
 	}
+*/
+// usando get e set
+		private $nome;
+		
+		public function setNome($novoNome) {
+			$this->nome = $novoNome;
+		}
+		
+		public function getNome() {
+			return $this->nome;
+		}
 }
-
