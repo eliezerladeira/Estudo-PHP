@@ -14,13 +14,21 @@ class Pessoa
 	}
 */
 // usando get e set
-		private $nome;
-		
-		public function setNome($novoNome) {
-			$this->nome = $novoNome;
-		}
-		
-		public function getNome() {
-			return $this->nome;
-		}
+	protected $nome;
+	
+	const ESPECIE = "Humana";
+	
+	public function __construct($tmpNome)
+	// envia o nome diretamente na instanciação da classe
+	{
+		$this->nome = $tmpNome;
+	}
+	
+	public function setNome($novoNome) {
+		$this->nome = $novoNome;
+	}
+	
+	public function getNome() {
+		return $this->nome;
+	}
 }
