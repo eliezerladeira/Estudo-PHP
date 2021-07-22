@@ -11,13 +11,13 @@
 	
 	<body>
 		<?php
-			$obj = new Triangulo();
+			$obj = new Triangulo2(10, 10, 10);
 			/*$obj->a = 10;
 			$obj->b = 20;
 			$obj->c = 10;*/
-			$obj->SetA(10);
-			$obj->SetB(10);
-			$obj->SetC(10);
+			//$obj->SetA(10);
+			//$obj->SetB(10);
+			//$obj->SetC(10);
 			
 			$obj->VerificaSeEUmTriangulo();
 		?>
